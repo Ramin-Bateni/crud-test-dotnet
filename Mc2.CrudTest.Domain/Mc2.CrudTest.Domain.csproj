@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Mc2.CrudTest.Domain</AssemblyName>
+    <RootNamespace>Mc2.CrudTest.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Command\**" />
+    <Compile Remove="DB\**" />
+    <Compile Remove="Query\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <EmbeddedResource Remove="DB\**" />
+    <EmbeddedResource Remove="Query\**" />
+    <None Remove="Command\**" />
+    <None Remove="DB\**" />
+    <None Remove="Query\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="SimpleCqrs" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.ApplicationServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Customers\Commands\" />
+  </ItemGroup>
+
+  
+</Project>
