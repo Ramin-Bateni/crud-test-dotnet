@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices.Models;
-using Mc2.CrudTest.Domain.Customers.Commands;
-using Mc2.CrudTest.Domain.Customers.Queries;
+using Mc2.CrudTest.Application2.Customers.Commands;
+using Mc2.CrudTest.Application2.Customers.Queries;
+using Mc2.CrudTest.Domain2.Models;
 using Mc2.CrudTest.Shared.Utilities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

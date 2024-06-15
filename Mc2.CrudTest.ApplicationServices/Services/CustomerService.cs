@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices.IRepositories;
-using Mc2.CrudTest.ApplicationServices.Models;
+using Mc2.CrudTest.Domain2.IRepositories;
+using Mc2.CrudTest.Domain2.Models;
 
-namespace Mc2.CrudTest.ApplicationServices.Services
+namespace Mc2.CrudTest.Domain2.Services
 {
     public class CustomerService:ICustomerService
     {

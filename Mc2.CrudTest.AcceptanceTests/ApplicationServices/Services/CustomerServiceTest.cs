@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Mc2.CrudTest.ApplicationServices;
-using Mc2.CrudTest.ApplicationServices.IRepositories;
-using Mc2.CrudTest.ApplicationServices.Models;
-using Mc2.CrudTest.ApplicationServices.Services;
+using Mc2.CrudTest.Domain2;
+using Mc2.CrudTest.Domain2.IRepositories;
+using Mc2.CrudTest.Domain2.Models;
+using Mc2.CrudTest.Domain2.Services;
 using NSubstitute;
 using Xunit;
 

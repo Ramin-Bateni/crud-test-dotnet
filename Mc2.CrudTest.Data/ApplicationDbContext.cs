@@ -1,5 +1,5 @@
-﻿using Mc2.CrudTest.ApplicationServices.Models;
-using Mc2.CrudTest.Data.Configurations;
+﻿using Mc2.CrudTest.Data.Configurations;
+using Mc2.CrudTest.Domain2.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mc2.CrudTest.Data

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Mc2.CrudTest.Domain2</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

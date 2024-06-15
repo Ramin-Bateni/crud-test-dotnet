@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices;
+using Mc2.CrudTest.Domain2;
 
 namespace Mc2.CrudTest.Data
 {

@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.ApplicationServices.csproj" />
+    <ProjectReference Include="..\..\Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.Domain.csproj" />
     <ProjectReference Include="..\..\Mc2.CrudTest.Data\Mc2.CrudTest.Data.csproj" />
-    <ProjectReference Include="..\..\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
+    <ProjectReference Include="..\..\Mc2.CrudTest.Domain\Mc2.CrudTest.Application.csproj" />
     <ProjectReference Include="..\Shared\Mc2.CrudTest.Shared.csproj" />
   </ItemGroup>
 

@@ -2,14 +2,14 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices.Models;
-using Mc2.CrudTest.ApplicationServices.Services;
+using Mc2.CrudTest.Domain2.Models;
+using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 
-namespace Mc2.CrudTest.Domain.Customers.Commands
+namespace Mc2.CrudTest.Application2.Customers.Commands
 {
     [ExcludeFromCodeCoverage]
-    public class CreateCustomerCommand : IRequest<ApplicationServices.Models.Customer>
+    public class CreateCustomerCommand : IRequest<Customer>
     {
         public string FirstName { get; set; }
         public string Lastname { get; set; }
@@ -19,7 +19,7 @@ namespace Mc2.CrudTest.Domain.Customers.Commands
         public string BankAccountNumber { get; set; }
 
         [ExcludeFromCodeCoverage]
-        public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ApplicationServices.Models.Customer>
+        public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Customer>
         {
             private readonly ICustomerService _customerService;
 
@@ -28,9 +28,9 @@ namespace Mc2.CrudTest.Domain.Customers.Commands
                 _customerService = customerService;
             }
 
-            public async Task<ApplicationServices.Models.Customer> Handle(CreateCustomerCommand command, CancellationToken cancellationToken)
+            public async Task<Customer> Handle(CreateCustomerCommand command, CancellationToken cancellationToken)
             {
-                Customer customer = new ApplicationServices.Models.Customer()
+                Customer customer = new Customer()
                 {
                     FirstName = command.FirstName,
                     LastName = command.Lastname,

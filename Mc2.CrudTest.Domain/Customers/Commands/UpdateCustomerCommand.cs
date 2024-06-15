@@ -2,11 +2,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices.Models;
-using Mc2.CrudTest.ApplicationServices.Services;
+using Mc2.CrudTest.Domain2.Models;
+using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 
-namespace Mc2.CrudTest.Domain.Customers.Commands
+namespace Mc2.CrudTest.Application2.Customers.Commands
 {
     [ExcludeFromCodeCoverage]
     public class UpdateCustomerCommand : IRequest<int>

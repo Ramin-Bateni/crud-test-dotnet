@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Mc2.CrudTest.Domain</AssemblyName>
-    <RootNamespace>Mc2.CrudTest.Domain</RootNamespace>
+    <AssemblyName>Mc2.CrudTest.Application2</AssemblyName>
+    <RootNamespace>Mc2.CrudTest.Application2</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.ApplicationServices.csproj" />
+    <ProjectReference Include="..\Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

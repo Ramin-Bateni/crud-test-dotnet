@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Mc2.CrudTest.ApplicationServices.Models;
 using Mc2.CrudTest.Data;
+using Mc2.CrudTest.Domain2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

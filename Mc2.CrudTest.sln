@@ -11,15 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Shared", "Mc2.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Presentation.Server", "Mc2.CrudTest.Presentation\Server\Mc2.CrudTest.Presentation.Server.csproj", "{8D41010B-AEF1-4742-B7EC-6A5AE62C45FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.ApplicationServices", "Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.ApplicationServices.csproj", "{11628AC1-CF00-434E-91C3-81D77A9CA014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Domain", "Mc2.CrudTest.ApplicationServices\Mc2.CrudTest.Domain.csproj", "{11628AC1-CF00-434E-91C3-81D77A9CA014}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Domain", "Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj", "{3E9FF535-8000-43DB-AF9D-68E429C9CCA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Application", "Mc2.CrudTest.Domain\Mc2.CrudTest.Application.csproj", "{3E9FF535-8000-43DB-AF9D-68E429C9CCA0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.Data", "Mc2.CrudTest.Data\Mc2.CrudTest.Data.csproj", "{78E963B3-D4C8-4422-AC35-C4AF114D3138}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.IntegrationTests", "Mc2.CrudTest.IntegrationTests\Mc2.CrudTest.IntegrationTests.csproj", "{16C3764A-370F-4BAE-A828-60269A29D0C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7969DD37-6A6D-4119-AF0F-994D8A8CCF28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{00E0E714-1EB4-4B62-950F-AE7C3BFD6766} = {C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}
+		{661369DC-0F78-4889-BA3B-639513A49789} = {7969DD37-6A6D-4119-AF0F-994D8A8CCF28}
 		{16C3764A-370F-4BAE-A828-60269A29D0C7} = {C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

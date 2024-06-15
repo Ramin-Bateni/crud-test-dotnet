@@ -12,14 +12,19 @@ namespace Mc2.CrudTest.Shared.Utilities
             PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.GetInstance();
             try
             {
-                phoneNumberUtil.Parse(number, "US");
+                phoneNumberUtil.Parse(number, "IR");
+
+
+                PhoneNumber phoneNumber = phoneNumberUtil.Parse(number, "US");
+                PhoneNumberType phoneNumberType = phoneNumberUtil.GetNumberType(phoneNumber);
+
+                return phoneNumberType == PhoneNumberType.MOBILE ||
+                       phoneNumberType == PhoneNumberType.FIXED_LINE_OR_MOBILE;
             }
             catch (Exception e)
             {
                 return false;
             }
-
-            return true;
         }
 
         public static bool BankAccountIsValid(string number)

@@ -2,10 +2,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using Mc2.CrudTest.ApplicationServices.Services;
+using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 
-namespace Mc2.CrudTest.Domain.Customers.Queries
+namespace Mc2.CrudTest.Application2.Customers.Queries
 {
     [ExcludeFromCodeCoverage]
     public class GetCustomerIdByInfoQuery : IRequest<int>
