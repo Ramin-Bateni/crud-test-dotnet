@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mc2.CrudTest.IntegrationTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7969DD37-6A6D-4119-AF0F-994D8A8CCF28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.SpecFlowTests", "Mc2.CrudTest.SpecFlowTests\Mc2.CrudTest.SpecFlowTests.csproj", "{26E25CA4-C5DF-40F2-AB6C-6A764047B214}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{16C3764A-370F-4BAE-A828-60269A29D0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16C3764A-370F-4BAE-A828-60269A29D0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16C3764A-370F-4BAE-A828-60269A29D0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26E25CA4-C5DF-40F2-AB6C-6A764047B214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E25CA4-C5DF-40F2-AB6C-6A764047B214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E25CA4-C5DF-40F2-AB6C-6A764047B214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E25CA4-C5DF-40F2-AB6C-6A764047B214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{00E0E714-1EB4-4B62-950F-AE7C3BFD6766} = {C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}
 		{661369DC-0F78-4889-BA3B-639513A49789} = {7969DD37-6A6D-4119-AF0F-994D8A8CCF28}
 		{16C3764A-370F-4BAE-A828-60269A29D0C7} = {C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}
+		{26E25CA4-C5DF-40F2-AB6C-6A764047B214} = {C18EA23F-032C-4009-BBC9-5A09FBA4F9B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B5A26C9-68C1-49D9-9F32-AF907A1730C2}
