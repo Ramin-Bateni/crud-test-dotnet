@@ -6,9 +6,5 @@
     <RootNamespace>Mc2.CrudTest.Domain2</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
   
 </Project>

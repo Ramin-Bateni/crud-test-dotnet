@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using Mc2.CrudTest.Application2.Services;
 using Mc2.CrudTest.Domain2.Models;
-using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 
 namespace Mc2.CrudTest.Application2.Customers.Queries

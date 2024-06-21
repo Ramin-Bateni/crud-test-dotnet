@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Mc2.CrudTest.Application2.Customers.Commands;
 using Mc2.CrudTest.Application2.Customers.Queries;
+using Mc2.CrudTest.Domain2.Enums;
 using Mc2.CrudTest.Domain2.Models;
 using Mc2.CrudTest.Shared.Utilities;
 using MediatR;
@@ -42,48 +44,8 @@ namespace Mc2.CrudTest.Presentation.Server.Controllers
         [Route(nameof(Create))]
         public async Task<ActionResult> Create(Customer customer)
         {
-            if (!Validator.PhoneIsValid(customer.PhoneNumber))
-            {
-                return BadRequest("PhoneNumber is invalid!");
-            }
-
-            if (!Validator.EmailIsValid(customer.Email))
-            {
-                return BadRequest("Email is invalid!");
-            }
-
-            if (!Validator.BankAccountIsValid(customer.BankAccountNumber))
-            {
-                return BadRequest("Bank account is invalid!");
-            }
-
-            //------ Check same user is exist or not
-            int customerId = await _mediator.Send(new GetCustomerIdByInfoQuery()
-            {
-                FirstName = customer.FirstName,
-                LastName = customer.LastName,
-                DateOfBirth = customer.DateOfBirth
-            });
-            // If there is another person with same info
-            if (customerId != 0 && customerId != customer.Id)
-            {
-                return BadRequest("Same customer is exist!");
-            }
-            //--------------------------------
-
-            //------ Check is email exist or not
-            customerId = await _mediator.Send(new GetCustomerIdByEmailQuery()
-            {
-                Email = customer.Email
-            });
-            // If there is another person with same email
-            if (customerId != 0 && customerId != customer.Id)
-            {
-                return BadRequest("Same email is exist!");
-            }
-            //--------------------------------
-
-            customer = await _mediator.Send(new CreateCustomerCommand()
+            CreateOrUpdateResult<Customer> result = 
+                await _mediator.Send(new CreateCustomerCommand()
             {
                 FirstName = customer.FirstName,
                 Lastname = customer.LastName,
@@ -92,6 +54,12 @@ namespace Mc2.CrudTest.Presentation.Server.Controllers
                 PhoneNumber = customer.PhoneNumber,
                 BankAccountNumber = customer.BankAccountNumber
             });
+
+            if (result.HasError)
+            {
+                return BadRequest($"Validation Errors: {string.Join(", ", result.Errors)}");
+            }
+
             return Ok(customer);
         }
 
@@ -99,58 +67,24 @@ namespace Mc2.CrudTest.Presentation.Server.Controllers
         [Route(nameof(Update))]
         public async Task<ActionResult> Update(Customer customer)
         {
-            if (!Validator.PhoneIsValid(customer.PhoneNumber))
+            CreateOrUpdateResult<Customer> result =
+                await _mediator.Send(new UpdateCustomerCommand()
+                {
+                    Id = customer.Id,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    DateOfBirth = customer.DateOfBirth,
+                    PhoneNumber = customer.PhoneNumber,
+                    BankAccountNumber = customer.BankAccountNumber
+                });
+
+            if (result.HasError)
             {
-                return BadRequest("PhoneNumber is invalid!");
+                return BadRequest($"Validation Errors: {string.Join(", ", result.Errors)}");
             }
 
-            if (!Validator.EmailIsValid(customer.Email))
-            {
-                return BadRequest("Email is invalid!");
-            }
-
-            if (!Validator.BankAccountIsValid(customer.BankAccountNumber))
-            {
-                return BadRequest("Bank account is invalid!");
-            }
-
-            //------ Check same user is exist or not
-            int customerId = await _mediator.Send(new GetCustomerIdByInfoQuery()
-            {
-                FirstName = customer.FirstName,
-                LastName = customer.LastName,
-                DateOfBirth = customer.DateOfBirth
-            });
-            // If there is another person with same info
-            if (customerId != 0 && customerId != customer.Id)
-            {
-                return BadRequest("Same customer is exist!");
-            }
-            //--------------------------------
-
-            //------ Check is email exist or not
-            customerId = await _mediator.Send(new GetCustomerIdByEmailQuery()
-            {
-                Email = customer.Email
-            });
-            // If there is another person with same email
-            if (customerId != 0 && customerId != customer.Id)
-            {
-                return BadRequest("Same email is exist!");
-            }
-            //--------------------------------
-
-            int id = await _mediator.Send(new UpdateCustomerCommand()
-            {
-                Id = customer.Id,
-                FirstName = customer.FirstName,
-                LastName = customer.LastName,
-                Email = customer.Email,
-                DateOfBirth = customer.DateOfBirth,
-                PhoneNumber = customer.PhoneNumber,
-                BankAccountNumber = customer.BankAccountNumber
-            });
-            return Ok(id);
+            return Ok(customer);
         }
 
         [HttpDelete]

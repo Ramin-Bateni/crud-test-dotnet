@@ -8,6 +8,7 @@ namespace Mc2.CrudTest.Domain2.IRepositories
     public interface ICustomerRepository
     {
         Task<IEnumerable<Customer>> GetCustomersListAsync();
+        Task<IEnumerable<Customer>> GetCustomersByInfoAsync(Customer customer);
         Task<Customer> GetCustomerByIdAsync(int id);
         Task<Customer> CreateCustomerAsync(Customer customer);
         Task<int> UpdateCustomerAsync(Customer customer);

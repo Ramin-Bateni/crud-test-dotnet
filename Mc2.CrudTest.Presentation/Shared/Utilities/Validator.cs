@@ -29,7 +29,7 @@ namespace Mc2.CrudTest.Shared.Utilities
 
         public static bool BankAccountIsValid(string number)
         {
-            return number != null && number.Length == 10 && Regex.IsMatch(number, @"^\d+$");
+            return number != null && number.Length == 18 && Regex.IsMatch(number, @"^[A-Z0-9]+$");
         }
 
         /// <summary>

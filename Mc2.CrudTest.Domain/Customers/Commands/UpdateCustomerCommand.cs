@@ -2,14 +2,15 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using Mc2.CrudTest.Application2.Services;
+using Mc2.CrudTest.Domain2.Enums;
 using Mc2.CrudTest.Domain2.Models;
-using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 
 namespace Mc2.CrudTest.Application2.Customers.Commands
 {
     [ExcludeFromCodeCoverage]
-    public class UpdateCustomerCommand : IRequest<int>
+    public class UpdateCustomerCommand : IRequest<CreateOrUpdateResult<Customer>>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -20,7 +21,7 @@ namespace Mc2.CrudTest.Application2.Customers.Commands
         public string BankAccountNumber { get; set; }
 
         [ExcludeFromCodeCoverage]
-        public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, int>
+        public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, CreateOrUpdateResult<Customer>>
         {
             private readonly ICustomerService _customerService;
 
@@ -29,7 +30,7 @@ namespace Mc2.CrudTest.Application2.Customers.Commands
                 _customerService = customerService;
             }
 
-            public async Task<int> Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
+            public async Task<CreateOrUpdateResult<Customer>> Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
             {
                 Customer customer = await _customerService.GetCustomerByIdAsync(command.Id);
                 if (customer == null)

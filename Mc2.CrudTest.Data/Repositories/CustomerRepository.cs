@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Mc2.CrudTest.Domain2.IRepositories;
 using Mc2.CrudTest.Domain2.Models;
@@ -19,6 +20,22 @@ namespace Mc2.CrudTest.Data.Repositories
         public async Task<IEnumerable<Customer>> GetCustomersListAsync()
         {
             var items = await _context.Customer.ToListAsync();
+            return items;
+        }
+
+        public async Task<IEnumerable<Customer>> GetCustomersByInfoAsync(Customer customer)
+        {
+            var items = await _context.Customer
+                .Where(x=>
+                    string.Equals(x.FirstName, customer.FirstName, StringComparison.CurrentCultureIgnoreCase) &&
+                    string.Equals(x.LastName, customer.LastName, StringComparison.CurrentCultureIgnoreCase) &&
+                    string.Equals(x.Email, customer.Email, StringComparison.CurrentCultureIgnoreCase) &&
+                    string.Equals(x.PhoneNumber, customer.PhoneNumber, StringComparison.CurrentCultureIgnoreCase) &&
+                    string.Equals(x.BankAccountNumber, customer.BankAccountNumber, StringComparison.CurrentCultureIgnoreCase) &&
+                    x.DateOfBirth == customer.DateOfBirth
+                    )
+                .ToListAsync();
+
             return items;
         }
 

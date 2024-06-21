@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Mc2.CrudTest.Application2.Services;
 using Mc2.CrudTest.Domain2;
 using Mc2.CrudTest.Domain2.IRepositories;
 using Mc2.CrudTest.Domain2.Models;
-using Mc2.CrudTest.Domain2.Services;
 using NSubstitute;
 using Xunit;
 
@@ -66,10 +66,10 @@ namespace Mc2.CrudTest.AcceptanceTests.ApplicationServices.Services
             };
 
             // Act
-            Customer result = await _service.CreateCustomerAsync(customer);
+            CreateOrUpdateResult<Customer> result = await _service.CreateCustomerAsync(customer);
 
             // Assert
-            result.Should().Be(customer);
+            result.Model.Should().Be(customer);
         }
 
         [Fact]
@@ -89,10 +89,10 @@ namespace Mc2.CrudTest.AcceptanceTests.ApplicationServices.Services
             };
 
             // Act
-            int result = await _service.UpdateCustomerAsync(customer);
+            CreateOrUpdateResult<Customer> result = await _service.UpdateCustomerAsync(customer);
 
             // Assert
-            result.Should().BeOfType(typeof(int));
+            result.Model.Should().NotBeNull();
         }
 
         [Fact]

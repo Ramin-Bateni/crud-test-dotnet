@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using Mc2.CrudTest.Application2.Customers.Queries;
+using Mc2.CrudTest.Application2.Services;
 using Mc2.CrudTest.Data;
 using Mc2.CrudTest.Data.Repositories;
 using Mc2.CrudTest.Domain2;
 using Mc2.CrudTest.Domain2.IRepositories;
-using Mc2.CrudTest.Domain2.Services;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

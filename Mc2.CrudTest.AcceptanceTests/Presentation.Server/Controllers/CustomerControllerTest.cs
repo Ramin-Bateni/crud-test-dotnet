@@ -58,7 +58,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
         [Fact]
         public async Task GetById_WhenCall_ReturnsCustomer()
         {
-            // Assign
+            // Arrange
             _mediator.Send(Arg.Any<GetCustomerByIdQuery>()).Returns(_customer);
 
             // Act
@@ -74,7 +74,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             // Arrange
             _mediator.Send(Arg.Any<GetCustomerIdByInfoQuery>()).Returns(0);
             _mediator.Send(Arg.Any<GetCustomerIdByEmailQuery>()).Returns(0);
-            _mediator.Send(new CreateCustomerCommand()).Returns(_customer);
+            _mediator.Send(new CreateCustomerCommand()).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -90,7 +90,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             CreateCustomerCommand createCustomerCommand = new();
             _customer.PhoneNumber = "1"; // Invalid phone number
 
-            _mediator.Send(createCustomerCommand).Returns(_customer);
+            _mediator.Send(createCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -106,7 +106,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             CreateCustomerCommand createCustomerCommand = new();
             _customer.Email = "myname"; // Invalid email
 
-            _mediator.Send(createCustomerCommand).Returns(_customer);
+            _mediator.Send(createCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -122,7 +122,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             CreateCustomerCommand createCustomerCommand = new();
             _customer.BankAccountNumber = "1"; // Invalid bank account
 
-            _mediator.Send(createCustomerCommand).Returns(_customer);
+            _mediator.Send(createCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -138,7 +138,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             CreateCustomerCommand createCustomerCommand = new();
 
             _mediator.Send(Arg.Any<GetCustomerIdByInfoQuery>()).ReturnsForAnyArgs(_secondCustomerId);
-            _mediator.Send(createCustomerCommand).Returns(_customer);
+            _mediator.Send(createCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -155,7 +155,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
 
             _mediator.Send<int>(Arg.Any<GetCustomerIdByInfoQuery>()).Returns(0);
             _mediator.Send(Arg.Any<GetCustomerIdByEmailQuery>()).Returns(_secondCustomerId);
-            _mediator.Send(createCustomerCommand).Returns(_customer);
+            _mediator.Send(createCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Create(_customer);
@@ -170,7 +170,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             // Arrange
             _mediator.Send(Arg.Any<GetCustomerIdByInfoQuery>()).Returns(0);
             _mediator.Send(Arg.Any<GetCustomerIdByEmailQuery>()).Returns(0);
-            _mediator.Send(Arg.Any<UpdateCustomerCommand>()).Returns(1);
+            _mediator.Send(Arg.Any<UpdateCustomerCommand>()).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
@@ -186,7 +186,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             UpdateCustomerCommand updateCustomerCommand = new();
             _customer.PhoneNumber = "1"; // Invalid phone number
 
-            _mediator.Send(updateCustomerCommand).Returns(1);
+            _mediator.Send(updateCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
@@ -202,7 +202,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             UpdateCustomerCommand updateCustomerCommand = new();
             _customer.Email = "myname"; // Invalid email
 
-            _mediator.Send(updateCustomerCommand).ReturnsForAnyArgs(1);
+            _mediator.Send(updateCustomerCommand).ReturnsForAnyArgs(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
@@ -218,7 +218,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             UpdateCustomerCommand updateCustomerCommand = new();
             _customer.Email = "myname"; // Invalid email
 
-            _mediator.Send(updateCustomerCommand).ReturnsForAnyArgs(1);
+            _mediator.Send(updateCustomerCommand).ReturnsForAnyArgs(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
@@ -233,7 +233,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             // Arrange
             _mediator.Send(Arg.Any<GetCustomerIdByInfoQuery>()).Returns(_secondCustomerId);
             _mediator.Send(Arg.Any<GetCustomerIdByEmailQuery>()).Returns(0);
-            _mediator.Send(Arg.Any<UpdateCustomerCommand>()).Returns(1);
+            _mediator.Send(Arg.Any<UpdateCustomerCommand>()).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
@@ -249,7 +249,7 @@ namespace Mc2.CrudTest.AcceptanceTests.Presentation.Server.Controllers
             UpdateCustomerCommand updateCustomerCommand = new();
             _mediator.Send(Arg.Any<GetCustomerIdByInfoQuery>()).Returns(0);
             _mediator.Send(Arg.Any<GetCustomerIdByEmailQuery>()).Returns(_secondCustomerId);
-            _mediator.Send(updateCustomerCommand).Returns(1);
+            _mediator.Send(updateCustomerCommand).Returns(CreateOrUpdateResult<Customer>.SetModel(_customer));
 
             // Act
             ActionResult result = await _controller.Update(_customer);
