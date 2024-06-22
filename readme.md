@@ -3,6 +3,9 @@ To be honest, I'm not prefect in TDD, BDD and CQRS so far but:
 CQRS, Swagger, Validations, DB, Unit tests, WebApplicationFactory
 - As a senior developer, I learn what I need in my work quickly
 
+# Update: Implementing the Tests of a SpecFlow scenario
+![image](https://github.com/Ramin-Bateni/crud-test-dotnet/assets/9051320/ddd09ee3-75c3-41a3-9085-cef3a66ab603)
+
 --------------------------------------------
 
 # CRUD Code Test 
